@@ -19,7 +19,7 @@ export default function Home() {
           style={{
             color: "linear-gradient(to right, #6727A6, #3C1661)",
           }}
-          className="text-[20px] font-semibold lg:text-[24px]"
+          className="text-[20px] font-semibold lg:text-center lg:text-[24px]"
         >
           Saved Games
         </h1>

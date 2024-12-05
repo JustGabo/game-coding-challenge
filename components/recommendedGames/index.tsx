@@ -1,23 +1,19 @@
-// import { Game } from '@/app/types/game'
-// import React, { useState } from 'react'
+import { Game } from "@/app/types/game";
+import React from "react";
+import GameSearchCard from "../gameSearchCard";
 
-// interface RecommendedGamesProps {
-//   category: number
-// }
+interface RecommendedGamesProps {
+  games: Game[];
+}
 
-// const RecommendedGames = ({ category }: RecommendedGamesProps) => {
-//     const [games, setGames] = useState<Game[]>([])
-// //   const games = await getRecommendedGames(category)
+const RecommendedGames = ({ games }: RecommendedGamesProps) => {
+  return (
+    <>
+      {games.map((game) => (
+        <GameSearchCard key={game.id} game={game} />
+      ))}
+    </>
+  );
+};
 
-//     const getRecommendedGames = async (category: number) => {
-
-//     }
-
-
-//   console.log(games)
-//   return (
-//     <div>RecommendedGames</div>
-//   )
-// }
-
-// export default RecommendedGames
+export default RecommendedGames;

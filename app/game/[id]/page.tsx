@@ -1,12 +1,10 @@
 import Background from "@/components/background";
-import CollectButton from "@/components/collectButton";
 import Header from "@/components/header";
 import GameInfo from "./components/gameInfo";
 import Gallery from "./components/gallery";
 import SimilarGames from "./components/similarGames";
 import MainInfo from "./components/mainInfo";
 import { fetchGameById } from "@/app/lib/igdb";
-import { Suspense } from "react";
 
 const GameDetails = async ({ params }: { params: { id: string } }) => {
   const gameId = await params.id;
@@ -33,9 +31,8 @@ const GameDetails = async ({ params }: { params: { id: string } }) => {
     <div className="py-[32px] px-[16px]">
       <Background />
       <Header isHome={false} />
-        <main className="flex flex-col gap-[24px]">
+        <main className="flex flex-col w-full lg:w-[65dvw] lg:mx-auto gap-[24px]">
           <MainInfo game={game} />
-          <CollectButton game={game} />
           {game?.age_ratings && <GameInfo game={game} />}
           {game?.screenshots && <Gallery game={game} />}
           {game?.similar_games && (

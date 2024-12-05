@@ -31,7 +31,7 @@ const Gallery = ({ game }: GalleryProps) => {
             return (
               <CarouselItem
                 key={screenshot.id}
-                className="basis-1/3 border-red-500 mr-3 h-[100px] relative"
+                className="basis-1/3 border-red-500 mr-3 h-[100px] lg:h-[200px] relative"
               >
                 <Image
                   src={screenshot.url}

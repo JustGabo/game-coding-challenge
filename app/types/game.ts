@@ -37,7 +37,7 @@ type SimilarGame = {
   age_ratings: AgeRating[];
   artworks: number[];
   category: number;
-  cover: Cover;
+  cover: Cover | undefined;
   created_at: number;
   external_games: number[];
   first_release_date: number;
@@ -69,7 +69,7 @@ export type Game = {
   age_ratings: AgeRating[];
   artworks: number[];
   category: number;
-  cover: Cover;
+  cover: Cover | undefined;
   created_at: number;
   external_games: number[];
   first_release_date: number;

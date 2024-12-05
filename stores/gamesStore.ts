@@ -36,11 +36,7 @@ const useGamesStore = create<GameCollectionState>()(
         }),
       removeGame: (id) =>
         set((state) => ({
-          games: state.games.filter((game) => game.id !== id),
-          toast: {
-            title: "Game removed",
-            description: "The game has been removed from your collection",
-          },
+          games: state.games.filter((game) => game.id !== id)
         })),
       isGameCollected: (id) =>
         !!get().games.find((game) => game.id === id),

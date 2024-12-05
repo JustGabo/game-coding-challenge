@@ -17,7 +17,7 @@ const SimilarGames = ({ similarGames }: SimilarGamesProps) => {
       >
         Similar Games
       </h3>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 lg:grid-cols-4 gap-[8px]">
         {similarGames.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
