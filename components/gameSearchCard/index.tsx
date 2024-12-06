@@ -2,12 +2,16 @@ import { Game } from "@/app/types/game";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { fixGameUrls } from "@/lib/utils";
 
 interface GameSearchCardProps {
   game: Game;
 }
 
 const GameSearchCard = ({ game }: GameSearchCardProps) => {
+
+  const convertedGame = fixGameUrls([game])
+
     return (
     <Link
       key={game.id}
@@ -16,7 +20,7 @@ const GameSearchCard = ({ game }: GameSearchCardProps) => {
     >
       {game.screenshots && game.screenshots.length > 0 && (
         <Image
-          src={game?.cover?.url || game?.screenshots[0].url}
+          src={convertedGame[0].cover?.url || convertedGame[0].screenshots[0].url}
           alt={game.name}
           className="size-10"
           width={100}

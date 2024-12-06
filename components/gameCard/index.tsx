@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import useGamesStore from "@/stores/gamesStore";
 import { useToast } from "@/hooks/use-toast";
+import { fixGameUrls } from "@/lib/utils";
 
 interface GameCardProps {
   game: Game;
@@ -15,9 +16,7 @@ const GameCard = ({ game }: GameCardProps) => {
   const { removeGame, games } = useGamesStore();
   const { toast } = useToast();
 
-  const convertedCoverUrl = game.cover.url.startsWith("//")
-    ? `https:${game.cover.url}`
-    : game.cover.url;
+  const convertedCoverUrl = fixGameUrls([game]);
 
   const isGameInCollection = games.some((g) => g.id === game.id);
 
@@ -25,7 +24,6 @@ const GameCard = ({ game }: GameCardProps) => {
     removeGame(game.id);
     toast({
       title: "Game removed from collection",
-
     });
   };
 
@@ -33,7 +31,10 @@ const GameCard = ({ game }: GameCardProps) => {
     <div className="relative w-[30dvw] h-[155px] lg:h-[300px] lg:w-[15dvw]">
       <Link href={`/game/${game.id}`}>
         <Image
-          src={convertedCoverUrl}
+          src={
+            convertedCoverUrl[0]?.cover?.url ||
+            convertedCoverUrl[0]?.screenshots[0]?.url
+          }
           alt={game.name}
           fill
           className="object-cover rounded-lg"

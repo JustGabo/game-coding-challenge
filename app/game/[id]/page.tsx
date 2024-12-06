@@ -1,4 +1,4 @@
-import Background from "@/components/background";
+import Background  from "@/components/background";
 import Header from "@/components/header";
 import GameInfo from "./components/gameInfo";
 import Gallery from "./components/gallery";

@@ -12,6 +12,7 @@ const MainInfo = ({ game }: MainInfoProps) => {
     ? `https:${game?.cover?.url}`
     : game?.cover?.url;
 
+
   return (
     <div className="flex flex-col gap-3">
       <div className="flex gap-3">

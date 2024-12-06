@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Background from "@/components/background";
 import GameList from "@/components/gamelList";
 import useGamesStore from "@/stores/gamesStore";
+
 export default function Home() {
 
   const {clearCollection} = useGamesStore()

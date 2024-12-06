@@ -1,19 +1,18 @@
 import * as React from "react";
 
-interface EmptyCapProps {
+interface EmptyCap2Props {
   className?: string;
   fill?: string;
-  fillOpacity?: number
+  fillOpacity?: number;
 }
 
-const EmptyCap2 = ({ className, fill, fillOpacity }: EmptyCapProps) => (
+const EmptyCap2 = ({  fill, fillOpacity }: EmptyCap2Props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="32"
     height="32"
     viewBox="0 0 32 32"
     fill={fill}
-    className={className}
   >
     <g filter="url(#filter0_di_16980_3335)">
       <rect

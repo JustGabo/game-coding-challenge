@@ -38,6 +38,13 @@ export function Search() {
 
   const getRecommendedGames = async (category: number) => {
     setIsSearching(true);
+
+    if(existingGames.length && existingGames[0].similar_games.length) {
+      setRecommendedGames(existingGames[0].similar_games)
+      setIsSearching(false)
+      return
+    }
+
     const url = `/api/recommendedGames?category=${category}`;
     const response = await fetch(url);
     const data = await response.json();
@@ -47,11 +54,15 @@ export function Search() {
   }; 
 
   useEffect(()=>{
-    if(!search && existingGames.length > 0){
+    if(!search && existingGames.length > 0){  
       void getRecommendedGames(existingGames[0].category || 1)
       setGames([])
     }
   },[search, existingGames])
+
+  useEffect(()=>{
+    console.log(existingGames[0])
+  },[existingGames])
   
   return (
     <div className="">

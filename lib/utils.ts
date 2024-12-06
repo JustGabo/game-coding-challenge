@@ -9,13 +9,13 @@ export function cn(...inputs: ClassValue[]) {
 export const fixGameUrls = (games: Game[]): Game[] => {
   return games.map((game: Game) => ({
     ...game,
-    cover: game.cover ? {
-      ...game.cover,
-      url: game.cover.url?.startsWith("//") ? `https:${game.cover.url}` : game.cover.url
+    cover: game?.cover ? {
+      ...game?.cover,
+      url: game?.cover?.url?.startsWith("//") ? `https:${game?.cover?.url}` : game?.cover?.url
     } : undefined,
-    screenshots: game.screenshots?.map((screenshot) => ({
+    screenshots: game?.screenshots?.map((screenshot) => ({
       ...screenshot,
-      url: screenshot.url.startsWith("//") ? `https:${screenshot.url}` : screenshot.url,
+      url: screenshot?.url?.startsWith("//") ? `https:${screenshot?.url}` : screenshot?.url,
     })),
   }));
 };
