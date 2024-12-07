@@ -2,7 +2,7 @@ import React from "react";
 
 import { Game } from "@/app/types/game";
 import Pills from "@/components/pills";
-import { Puzzle, Star } from "lucide-react";
+import { Calendar, Puzzle, Star } from "lucide-react";
 
 interface GameInfoProps {
   game: Game;
@@ -25,8 +25,13 @@ const GameInfo = ({ game }: GameInfoProps) => {
             icon={<Puzzle className="w-4 h-4" />}
           />
         )}
-        {/* <Pills label="Publisher" text={game.genres[0]} icon={<img src="/icons/publisher.svg" alt="publisher" />} /> */}
-        {/* <Pills label="Publisher" text={game.created_at} icon={<img src="/icons/publisher.svg" alt="publisher" />} /> */}
+        {game.release_dates && (
+          <Pills
+            label="Release Date"
+            text={game.release_dates[0].human}
+            icon={<Calendar className="w-4 h-4" />}
+          />
+        )}
       </div>
 
       <div className="flex flex-col gap-[8px]">

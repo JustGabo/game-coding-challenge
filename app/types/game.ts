@@ -32,6 +32,13 @@ type AgeRating = {
   rating: number;
 }
 
+type ReleaseDate = {
+  id: number, 
+  year: number,
+  month: number,
+  human: string
+}
+
 type SimilarGame = {
   id: number;
   age_ratings: AgeRating[];
@@ -49,7 +56,7 @@ type SimilarGame = {
   name: string;
   platforms: Platform[];
   player_perspectives: number[];
-  release_dates: number[];
+  release_dates: ReleaseDate[];
   screenshots: Screenshot[];
   involved_companies: InvolvedCompany[];
   similar_games: SimilarGame[];
@@ -81,7 +88,7 @@ export type Game = {
   name: string;
   platforms: Platform[];
   player_perspectives: number[];
-  release_dates: number[];
+  release_dates: ReleaseDate[];
   screenshots: Screenshot[];
   involved_companies: InvolvedCompany[];
   similar_games: SimilarGame[];

@@ -10,9 +10,10 @@ import { fixGameUrls } from "@/lib/utils";
 
 interface GameCardProps {
   game: Game;
+  showDeleteButton?: boolean;
 }
 
-const GameCard = ({ game }: GameCardProps) => {
+const GameCard = ({ game, showDeleteButton = false }: GameCardProps) => {
   const { removeGame, games } = useGamesStore();
   const { toast } = useToast();
 
@@ -24,6 +25,8 @@ const GameCard = ({ game }: GameCardProps) => {
     removeGame(game.id);
     toast({
       title: "Game removed from collection",
+      description: `${game.name} has been removed from your collection`,
+      variant: "delete",
     });
   };
 
@@ -41,7 +44,7 @@ const GameCard = ({ game }: GameCardProps) => {
         />
       </Link>
 
-      {isGameInCollection && (
+      {isGameInCollection && showDeleteButton && (
         <Button
           onClick={removeGameFromCollection}
           size="delete"

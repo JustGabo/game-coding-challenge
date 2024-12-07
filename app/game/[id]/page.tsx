@@ -10,8 +10,6 @@ const GameDetails = async ({ params }: { params: { id: string } }) => {
   const gameId = await params.id;
   const game = await fetchGameById(Number(gameId));
 
-  console.log(game);
-
   if (!game || !gameId) {
     return (
       <div className="text-center py-[32px] px-[16px] ">

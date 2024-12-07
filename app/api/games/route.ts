@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
         "Client-ID": process.env.IGDB_CLIENT_ID,
         Authorization: `Bearer ${process.env.IGDB_ACCESS_TOKEN}`,
       },
-      body: `search "*${search}*"; fields *,involved_companies.company.*,cover.url,screenshots.url;`,
+      body: `search "*${search}*"; fields *,involved_companies.company.*,cover.url,screenshots.url,release_dates.*;`,
     });
 
     const data = await response.json();

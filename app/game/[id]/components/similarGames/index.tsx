@@ -19,7 +19,7 @@ const SimilarGames = ({ similarGames }: SimilarGamesProps) => {
       </h3>
       <div className="grid grid-cols-3 lg:grid-cols-4 gap-[8px]">
         {similarGames.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCard key={game.id} game={game} showDeleteButton={false} />
         ))}
       </div>
     </main>

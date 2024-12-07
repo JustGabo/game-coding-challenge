@@ -59,10 +59,6 @@ export function Search() {
       setGames([])
     }
   },[search, existingGames])
-
-  useEffect(()=>{
-    console.log(existingGames[0])
-  },[existingGames])
   
   return (
     <div className="">
@@ -105,39 +101,39 @@ export function Search() {
           showSearch ? "absolute" : "hidden"
         }`}
       >
-        {isSearching && (
+        {isSearching ? (
           <>
           <div className="w-full h-full flex items-center justify-center">
           <LoaderIcon className="animate-spin" />
           </div>
           </>
-        ) }
+        ) : null}
 
-        {games.length > 0 && !isSearching && search && (
+        {games.length > 0 && !isSearching && search ? (
           <>
             {games.map((game) => (
               <GameSearchCard key={game.id} game={game} />
             ))}
           </>
-        )}
+        ) : null}
 
-        {!isSearching && !games.length && search && (
+        {!isSearching && !games.length && search ? (
           <div className="w-full h-full flex flex-col items-center justify-center">
             <p className="text-[14px] font-semibold text-[#f383d1]">No games found.</p>
             <p className="text-[14px] font-semibold text-[#f383d1]">
               Try adding something else.
             </p>
           </div>
-        )}
+        ) : null}
 
-        {recommendedGames.length && !isSearching && !games.length && !search && (
+        {recommendedGames.length && !isSearching && !games.length && !search ? (
           <div className="flex flex-col gap-1">
             <p className="text-[14px] font-semibold text-center text-[#f383d1]">
               Recommended for you
             </p>
             <RecommendedGames games={recommendedGames} />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );

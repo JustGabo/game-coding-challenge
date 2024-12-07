@@ -1,5 +1,4 @@
 "use client"
-import React, { useEffect, useState } from 'react'
 import { Button } from '../../../../../components/ui/button'
 import useGamesStore from '@/stores/gamesStore'
 import { Game } from '@/app/types/game'
@@ -12,7 +11,6 @@ interface CollectButtonProps{
 const CollectButton = ({game}: CollectButtonProps) => {
 
   const {addGame, isGameCollected} = useGamesStore()
-  // const [isCollected, setIsCollected] = useState(isGameCollected(game.id))
 
   const isCollected = isGameCollected(game.id)
 
@@ -20,6 +18,8 @@ const CollectButton = ({game}: CollectButtonProps) => {
     addGame(game)
     toast({
       title: "Game added to collection",
+      description: `${game.name} has been added to your collection`,
+      variant: "success",
     });
   }
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { Search } from "../search";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
+import Logo from "../svgs/Logo";
 
 interface HeaderProps {
   isHome?: boolean;
@@ -14,16 +14,7 @@ const Header = ({ isHome }: HeaderProps) => {
       <header className={` pb-[54px] mt-10 ${isHome ? "lg:flex-col" : "lg:flex-row"} flex-col flex lg:items-center lg:w-[40%] lg:mx-auto gap-5 lg:gap-31`}>
         {isHome ? (
           <section className="flex items-center gap-4">
-            {/* <Link className="" href={"/"}>
-              <Image
-                src={"/ilustrations/Logo.png"}
-                alt="logo"
-                width={50}
-                height={50}
-                className="object-fill"
-              />
-            </Link> */}
-
+            <Logo />
             <h1
               style={{
                 color: "linear-gradient(to right, #6727A6 0%, #3C1661)",

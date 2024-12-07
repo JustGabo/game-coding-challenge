@@ -13,7 +13,7 @@ export async function fetchGameById(id: number): Promise<Game> {
       "Client-ID": process.env.IGDB_CLIENT_ID,
       Authorization: `Bearer ${process.env.IGDB_ACCESS_TOKEN}`,
     },
-    body: `fields *,involved_companies.company.*,similar_games.*,similar_games.cover.*,platforms.*,cover.url,screenshots.url,age_ratings.*,genres.*; where id = ${Number(
+    body: `fields *,involved_companies.company.*,similar_games.*,similar_games.cover.*,platforms.*,cover.url,screenshots.url,age_ratings.*,genres.*,release_dates.*; where id = ${Number(
       id
     )};`,
   });
