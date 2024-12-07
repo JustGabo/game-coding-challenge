@@ -14,7 +14,7 @@ interface GalleryProps {
 }
 
 const Gallery = ({ game }: GalleryProps) => {
-  // fix the urls of the screenshots cause nextjs image is not working with the protocol
+  // fix the urls of the screenshots cause nextjs image is not working with the protocol //
   const convertedScreenshotsUrls = game?.screenshots?.map((screenshot) => ({
     ...screenshot,
     url: screenshot.url.startsWith("//")

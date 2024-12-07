@@ -1,6 +1,6 @@
 import { Game } from "../types/game";
 
-export async function fetchGameById(id: number): Promise<Game> {
+export async function fetchGameById(id: number): Promise<Game | null> {
   const url = `https://api.igdb.com/v4/games`;
 
   if (!process.env.IGDB_CLIENT_ID || !process.env.IGDB_ACCESS_TOKEN) {

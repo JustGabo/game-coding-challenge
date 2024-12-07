@@ -18,8 +18,8 @@ const MainInfo = ({ game }: MainInfoProps) => {
       <div className="flex gap-3">
         <div className="w-[170px] h-[170px] relative">
           <Image
-            src={convertedCoverUrl}
-            alt={game?.name}
+            src={convertedCoverUrl || ''}
+            alt={game?.name || 'Game cover'}
             fill
             className="object-cover rounded-lg"
           />

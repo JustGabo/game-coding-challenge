@@ -3,7 +3,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface GameWithDate extends Game {
-  dateAdded: string; // Nueva propiedad para registrar la fecha y hora de agregado
+  dateAdded: string;
 }
 
 interface GameCollectionState {
