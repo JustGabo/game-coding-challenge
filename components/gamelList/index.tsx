@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import EmptyState from "../emptyState";
 import useGamesStore from "@/stores/gamesStore";
 import GameCard from "../gameCard";
+import EmptyState from "../emptyState";
+
 
 const GameList = () => {
   const { games, filterGames, currentFilter} = useGamesStore();
