@@ -7,10 +7,10 @@ import MainInfo from "./components/mainInfo";
 import { fetchGameById } from "@/app/lib/igdb";
 
 const GameDetails = async ({ params }: { params: { id: string } }) => {
-  const gameId = await params.id;
+  const { id: gameId } = params;
   const game = await fetchGameById(Number(gameId));
 
-  if (!game || !gameId) {
+  if (!game || !gameId) { 
     return (
       <div className="text-center py-[32px] px-[16px] ">
         <Background />
