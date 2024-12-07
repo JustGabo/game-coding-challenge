@@ -47,6 +47,7 @@ export function Search() {
 
     const url = `/api/recommendedGames?category=${category}`;
     const response = await fetch(url);
+    console.log("fetcheando category")
     const data = await response.json();
 
     setRecommendedGames(fixGameUrls(data));
@@ -54,9 +55,14 @@ export function Search() {
   }; 
 
   useEffect(()=>{
-    if(!search && existingGames.length > 0){  
-      void getRecommendedGames(existingGames[0].category || 1)
-      setGames([])
+    if(!search){
+      if(existingGames.length > 0){  
+        void getRecommendedGames(existingGames[0].category && existingGames[0].category)
+        setGames([])
+      }
+      else{
+        void getRecommendedGames(1)
+      }
     }
   },[search, existingGames])
   

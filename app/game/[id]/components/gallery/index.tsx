@@ -22,12 +22,14 @@ const Gallery = ({ game }: GalleryProps) => {
       : screenshot.url,
   }));
 
+  if(!convertedScreenshotsUrls) return null
+
   return (
     <div>
       <h3 className="text-[16px] font-semibold">Media</h3>
       <Carousel className="w-full">
         <CarouselContent className="">
-          {convertedScreenshotsUrls.map((screenshot) => {
+          {convertedScreenshotsUrls?.map((screenshot) => {
             return (
               <CarouselItem
                 key={screenshot.id}

@@ -2,27 +2,29 @@ import React from "react";
 import Image from "next/image";
 import { Game } from "@/app/types/game";
 import CollectButton from "../collectButton";
+import { fixGameUrls } from "@/lib/utils";
 
 interface MainInfoProps {
   game: Game;
 }
 
 const MainInfo = ({ game }: MainInfoProps) => {
-  const convertedCoverUrl = game?.cover?.url?.startsWith("//")
-    ? `https:${game?.cover?.url}`
-    : game?.cover?.url;
+  
+  const convertedGames = fixGameUrls([game])
 
 
   return (
     <div className="flex flex-col gap-3">
       <div className="flex gap-3">
         <div className="w-[170px] h-[170px] relative">
-          <Image
-            src={convertedCoverUrl || ''}
-            alt={game?.name || 'Game cover'}
-            fill
-            className="object-cover rounded-lg"
-          />
+          {convertedGames[0]?.cover || convertedGames[0].screenshots[0] ? (
+            <Image
+              src={convertedGames[0]?.cover?.url || convertedGames[0].screenshots[0].url}
+              alt={game?.name || "Game cover"}
+              fill
+              className="object-cover rounded-lg"
+            />
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-3">

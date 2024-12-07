@@ -7,6 +7,9 @@ interface SimilarGamesProps {
 }
 
 const SimilarGames = ({ similarGames }: SimilarGamesProps) => {
+  
+  if(!similarGames) return null
+
   return (
     <main className="flex flex-col gap-5 mt-[24px]">
       <h3
