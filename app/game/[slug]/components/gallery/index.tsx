@@ -8,45 +8,45 @@ import {
 import Image from "next/image";
 import { Game } from "@/app/types/game";
 import React from "react";
-import { fixGameUrls } from "@/lib/utils";
 
 interface GalleryProps {
   game: Game;
 }
 
 const Gallery = ({ game }: GalleryProps) => {
+  // fix the urls of the screenshots cause nextjs image is not working with the protocol //
+  const convertedScreenshotsUrls = game?.screenshots?.map((screenshot) => ({
+    ...screenshot,
+    url: screenshot.url.startsWith("//")
+      ? `https:${screenshot.url}`
+      : screenshot.url,
+  }));
 
-  const convertedGame = fixGameUrls([game])[0];
-
-  if (!convertedGame.screenshots.length) {
-    return (
-      <div className="flex items-center justify-center p-4 text-gray-500">
-        <p>No media available for this game.</p>
-      </div>
-    );
-  }
+  if(!convertedScreenshotsUrls) return null
 
   return (
-    <div className="mt-4">
-      <h3 className="text-[16px] font-semibold mb-3">Media</h3>
+    <div>
+      <h3 className="text-[16px] font-semibold">Media</h3>
       <Carousel className="w-full">
-        <CarouselContent className="flex gap-3">
-          {convertedGame.screenshots.map((screenshot) => (
-            <CarouselItem
-              key={screenshot.id}
-              className="flex-shrink-0 w-1/3 border-red-500 relative h-[100px] lg:h-[200px]"
-            >
-              <Image
-                src={screenshot.url}
-                alt={`Screenshot from ${game.name}`}
-                fill
-                className="object-cover rounded-lg"
-              />
-            </CarouselItem>
-          ))}
+        <CarouselContent className="">
+          {convertedScreenshotsUrls?.map((screenshot) => {
+            return (
+              <CarouselItem
+                key={screenshot.id}
+                className="basis-1/3 border-red-500 mr-3 h-[100px] lg:h-[200px] relative"
+              >
+                <Image
+                  src={screenshot.url}
+                  alt="Screenshot"
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-md" />
-        <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-md" />
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </div>
   );

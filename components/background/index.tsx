@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 const Background = () => {
   return (
-    <section role="presentation" className="relative">
+    <section className="absolute top-0 left-0 w-full h-full -z-10">
       <div
         className="h-[275px] w-full -z-10 absolute top-0 left-0"
         style={{

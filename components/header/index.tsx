@@ -24,20 +24,13 @@ const Header = ({ isHome }: HeaderProps) => {
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="flex items-center gap-2"
         >
-          <motion.div
-            style={{ background: "linear-gradient(to top right, #FF00AE, #FF97DE 80%)" }}
+          <div
+            style={{ background: "linear-gradient(to top right, #FF00AE, #FF97D2 50%)" }}
             className="relative rounded-[8px] w-[24px] h-[24px] flex items-center justify-center"
             aria-hidden="true"
           >
-            <div
-              style={{
-                background: "linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 205, 245) 50%)"
-              }}
-              className="absolute w-[calc(100% - 3px)] h-[calc(100% - 3px)] rounded-[6px]"
-            >
               <Swords />
-            </div>
-          </motion.div>
+          </div>
           <h1
             style={{
               color: "linear-gradient(to right, #6727A6, #3C1661)"
@@ -50,7 +43,7 @@ const Header = ({ isHome }: HeaderProps) => {
         </motion.section>
       ) : (
         <div>
-          <Link href={"/"} className="flex items-center gap-2" aria-label="Go back to homepage">
+          <Link href={"/"} className="flex items-center gap-2">
             <ArrowLeft />
             <h3
               style={{
