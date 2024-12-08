@@ -35,8 +35,9 @@ const GameCard = ({ game, showDeleteButton = false }: GameCardProps) => {
       <Link href={`/game/${game.slug}`} className="block">
         <Image
           src={
-            convertedCoverUrl[0]?.cover?.url ||
-            convertedCoverUrl[0]?.screenshots[0]?.url
+            convertedCoverUrl?.[0]?.cover?.url ||
+            convertedCoverUrl?.[0]?.screenshots?.[0]?.url ||
+            "/placeholder-game.jpg"
           }
           alt={game.name}
           fill

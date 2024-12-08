@@ -11,8 +11,7 @@ const Filters = () => {
 
   return (
     <nav
-      aria-label="Game Filters"
-      className="flex gap-5 mb-[12px] sticky w-auto lg:top-5 lg:justify-center top-10 z-[100] p-2 lg:w-[40%] lg:mx-auto bg-white/50 backdrop-blur-sm rounded-full"
+      className="flex gap-5 mb-[12px] w-auto lg:justify-center z-[100] p-2 lg:w-[40%] lg:mx-auto bg-white/50 backdrop-blur-sm rounded-full"
     >
       <button
         onClick={() => handleFilterChange("last_added")}

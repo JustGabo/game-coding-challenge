@@ -5,7 +5,7 @@ import GameList from "@/components/gamelList";
 
 export default function Home() {
   return (
-    <div className="pt-[32px] px-[16px]">
+    <div className="py-[32px] px-[16px]">
       <Background />
 
       <Header isHome={true} />
@@ -21,7 +21,7 @@ export default function Home() {
             Saved Games
           </h1>
 
-          <section aria-labelledby="filters-section">
+          <section aria-labelledby="filters-section" className="sticky lg:top-5 top-10 z-[100]">
             <Filters />
           </section>
 
