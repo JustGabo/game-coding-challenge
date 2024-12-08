@@ -15,7 +15,7 @@ const GameSearchCard = ({ game }: GameSearchCardProps) => {
     return (
     <Link
       key={game.id}
-      href={`/game/${game.id}`}
+      href={`/game/${game.slug}`}
       className="flex items-center gap-2"
     >
       {game.screenshots && game.screenshots.length > 0 && (

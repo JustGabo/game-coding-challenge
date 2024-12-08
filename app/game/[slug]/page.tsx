@@ -4,12 +4,12 @@ import GameInfo from "./components/gameInfo";
 import Gallery from "./components/gallery";
 import SimilarGames from "./components/similarGames";
 import MainInfo from "./components/mainInfo";
-import { fetchGameById } from "@/app/lib/igdb";
+import { fetchGameBySlug } from "@/app/lib/igdb";
 
-export default async function GameDetails({ params }: {params: Promise<{id: number}>}) {
-  const gameId = (await params).id
+export default async function GameDetails({ params }: {params: Promise<{slug: string}>}) {
+  const gameSlug = (await params).slug
 
-  const game = await fetchGameById(gameId);
+  const game = await fetchGameBySlug(gameSlug);
 
   if (!game) {
     return (

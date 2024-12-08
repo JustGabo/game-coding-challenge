@@ -1,5 +1,5 @@
+"use client"
 import { Game } from "@/app/types/game";
-import React from "react";
 import GameSearchCard from "../gameSearchCard";
 
 interface RecommendedGamesProps {

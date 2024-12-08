@@ -1,6 +1,6 @@
 import { Game } from "../types/game";
 
-export async function fetchGameById(id: number): Promise<Game | null> {
+export async function fetchGameBySlug(slug: string  ): Promise<Game | null> {
   const url = `https://api.igdb.com/v4/games`;
 
   if (!process.env.IGDB_CLIENT_ID || !process.env.IGDB_ACCESS_TOKEN) {
@@ -13,9 +13,7 @@ export async function fetchGameById(id: number): Promise<Game | null> {
       "Client-ID": process.env.IGDB_CLIENT_ID,
       Authorization: `Bearer ${process.env.IGDB_ACCESS_TOKEN}`,
     },
-    body: `fields *,involved_companies.company.*,similar_games.*,similar_games.cover.*,platforms.*,cover.url,screenshots.url,age_ratings.*,genres.*,release_dates.*; where id = ${Number(
-      id
-    )};`,
+    body: `fields *,involved_companies.company.*,similar_games.*,similar_games.cover.*,platforms.*,cover.url,screenshots.url,age_ratings.*,genres.*,release_dates.*; where slug = "${slug}";`,
   });
 
   if (!response.ok) {

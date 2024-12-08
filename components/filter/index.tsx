@@ -10,18 +10,23 @@ const Filters = () => {
   };
 
   return (
-    <div className="flex gap-5 mb-[12px] sticky w-auto lg:top-5 lg:justify-center  top-10 z-[100] p-2 lg:w-[40%] lg:mx-auto bg-white/50 backdrop-blur-sm  rounded-full">
+    <nav
+      aria-label="Game Filters"
+      className="flex gap-5 mb-[12px] sticky w-auto lg:top-5 lg:justify-center top-10 z-[100] p-2 lg:w-[40%] lg:mx-auto bg-white/50 backdrop-blur-sm rounded-full"
+    >
       <button
         onClick={() => handleFilterChange("last_added")}
-        className={`text-[#3C1661] w-[150px]  px-4 py-2 rounded-full text-[14px] font-medium ${
-          currentFilter === "last_added" ? " bg-[#3C1661] text-white" : ""
+        aria-pressed={currentFilter === "last_added"}
+        className={`text-[#3C1661] w-[150px] px-4 py-2 rounded-full text-[14px] font-medium ${
+          currentFilter === "last_added" ? "bg-[#3C1661] text-white" : ""
         }`}
       >
         Last added
       </button>
       <button
         onClick={() => handleFilterChange("newest")}
-        className={` w-[100px] text-[#3C1661] px-4 py-2 rounded-full text-[14px] font-medium ${
+        aria-pressed={currentFilter === "newest"}
+        className={`w-[100px] text-[#3C1661] px-4 py-2 rounded-full text-[14px] font-medium ${
           currentFilter === "newest" ? "bg-[#3C1661] text-white" : ""
         }`}
       >
@@ -29,13 +34,14 @@ const Filters = () => {
       </button>
       <button
         onClick={() => handleFilterChange("oldest")}
+        aria-pressed={currentFilter === "oldest"}
         className={`w-[100px] text-[#3C1661] px-4 py-2 rounded-full text-[14px] font-medium ${
           currentFilter === "oldest" ? "bg-[#3C1661] text-white" : ""
         }`}
       >
         Oldest
       </button>
-    </div>
+    </nav>
   );
 };
 

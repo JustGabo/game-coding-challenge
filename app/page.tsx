@@ -7,10 +7,11 @@ export default function Home() {
   return (
     <div className="pt-[32px] px-[16px]">
       <Background />
+
       <Header isHome={true} />
 
       <main className="flex flex-col gap-[16px]">
-        <div className="flex flex-col gap-[16px]">
+        <section className="flex flex-col gap-[16px]" aria-labelledby="games-section">
           <h1
             style={{
               color: "linear-gradient(to right, #6727A6, #3C1661)",
@@ -19,9 +20,15 @@ export default function Home() {
           >
             Saved Games
           </h1>
-          <Filters />
-          <GameList />
-        </div>
+
+          <section aria-labelledby="filters-section">
+            <Filters />
+          </section>
+
+          <section aria-labelledby="game-list-section">
+            <GameList />
+          </section>
+        </section>
       </main>
     </div>
   );

@@ -31,8 +31,8 @@ const GameCard = ({ game, showDeleteButton = false }: GameCardProps) => {
   };
 
   return (
-    <div className="relative w-[30dvw] h-[155px] lg:h-[300px] lg:w-[15dvw]">
-      <Link href={`/game/${game.id}`}>
+    <article className="relative w-[30dvw] h-[155px] lg:h-[300px] lg:w-[15dvw]">
+      <Link href={`/game/${game.slug}`} className="block">
         <Image
           src={
             convertedCoverUrl[0]?.cover?.url ||
@@ -49,12 +49,12 @@ const GameCard = ({ game, showDeleteButton = false }: GameCardProps) => {
           onClick={removeGameFromCollection}
           size="delete"
           variant="delete"
-          className="absolute flex items-center justify-center bottom-3 right-3  "
+          className="absolute flex items-center justify-center bottom-3 right-3"
         >
-          <Trash className=" cursor-pointer text-black" strokeWidth={2.5} />
+          <Trash className="cursor-pointer text-black" strokeWidth={2.5} />
         </Button>
       )}
-    </div>
+    </article>
   );
 };
 

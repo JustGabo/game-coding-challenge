@@ -39,7 +39,7 @@ const CollectButton = ({ game }: CollectButtonProps) => {
         color: isCollected ? "#3C1661" : "white",
         border: isCollected ? "1px solid #3C1661" : "1px solid white",
       }}
-      className={`w-full rounded-full h-[45px] `}
+      className={`w-[300px] rounded-full h-[45px] `}
     >
       {isCollected ? "Collected" : "Collect game"}
     </Button>
