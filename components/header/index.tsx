@@ -4,6 +4,7 @@ import { Search } from "../search";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Sworns from "../svgs/Swords";
+import {motion} from 'framer-motion'
 
 interface HeaderProps {
   isHome?: boolean;
@@ -18,12 +19,12 @@ const Header = ({ isHome }: HeaderProps) => {
         } flex-col flex lg:items-center lg:w-[40%] lg:mx-auto gap-3 lg:gap-31`}
       >
         {isHome ? (
-          <section className="flex items-center gap-2">
-            <div style={{background: "linear-gradient(to top right, #FF00AE, #FF97DE 70%)"}} className="relative rounded-[8px] w-[24px] h-[24px] flex items-center justify-center ">
+          <motion.section initial={{opacity: 0, y: 15}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5, ease: "easeInOut"}} className="flex items-center gap-2">
+            <motion.div style={{background: "linear-gradient(to top right, #FF00AE, #FF97DE 80%)"}} className="relative rounded-[8px] w-[24px] h-[24px] flex items-center justify-center ">
               <div style={{background: "linear-gradient(to bottom, rbg(255, 2555, 255), rbg(255, 205, 245) 50%)"}} className="absolute w-[calc(100% - 3px)] h-[calc(100% - 3px)] rounded-[6px]">
               <Sworns />
               </div>
-            </div>
+            </motion.div>
             <h1
               style={{
                 color: "linear-gradient(to right, #6727A6, #3C1661)",
@@ -32,7 +33,7 @@ const Header = ({ isHome }: HeaderProps) => {
             >
               Gaming Haven Z
             </h1>
-          </section>
+          </motion.section>
         ) : (
           <div>
             <Link href={"/"} className="flex items-center gap-2">
